@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { BrandLogo } from "./BrandLogo";
+import { Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-craftsmanship.jpg";
 
 type Lang = "en" | "bn";
@@ -131,42 +131,7 @@ export function Hero({ lang }: HeroProps) {
         </g>
       </svg>
 
-      {/* Top bar */}
-      <header className="absolute inset-x-0 top-0 z-20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-          <a href="#" className="group flex items-center gap-3">
-            <BrandLogo className="h-10 w-10 transition-transform duration-700 group-hover:rotate-[20deg]" />
-            <span className="leading-tight">
-              <span className="font-display-en block text-[0.95rem] tracking-[0.18em] text-white">
-                Rubayat Raihan
-              </span>
-              <span className="font-body-en block text-[0.65rem] uppercase tracking-[0.32em] text-[#c9a84c]">
-                Maker · Studio
-              </span>
-            </span>
-          </a>
-
-          <nav className="font-body-en hidden items-center gap-8 text-[0.7rem] uppercase tracking-[0.3em] text-white/70 md:flex">
-            <a href="#portfolio" className="transition hover:text-white">Work</a>
-            <a href="#about" className="transition hover:text-white">About</a>
-            <a href="#contact" className="transition hover:text-white">Contact</a>
-          </nav>
-
-          <button
-            type="button"
-            onClick={() => {
-              const ev = new CustomEvent("rr:toggle-lang");
-              window.dispatchEvent(ev);
-            }}
-            className="group flex items-center gap-2 rounded-full border border-[#c9a84c]/40 bg-white/5 px-4 py-1.5 text-[0.65rem] uppercase tracking-[0.3em] text-white backdrop-blur-md transition hover:border-[#c9a84c] hover:bg-[#c9a84c]/15"
-            aria-label="Toggle language"
-          >
-            <span className="opacity-50">{lang === "en" ? "EN" : "বাং"}</span>
-            <span className="text-[#c9a84c]">/</span>
-            <span>{otherLang === "en" ? "EN" : "বাং"}</span>
-          </button>
-        </div>
-      </header>
+      {/* Top bar reserved by SiteNav — keep spacing only */}
 
       {/* Hero content */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 sm:pb-32">
@@ -239,19 +204,19 @@ export function Hero({ lang }: HeroProps) {
 
         {/* CTAs */}
         <div className="mt-10 flex flex-wrap gap-3">
-          <a
-            href="#portfolio"
+          <Link
+            to="/work"
             className="group relative overflow-hidden rounded-full bg-gradient-to-r from-[#f5d98a] via-[#c9a84c] to-[#8c6a1f] px-8 py-3.5 text-[0.7rem] font-medium uppercase tracking-[0.3em] text-black shadow-[0_10px_40px_-10px_rgba(201,168,76,0.6)] transition hover:shadow-[0_15px_50px_-10px_rgba(201,168,76,0.8)]"
           >
             <span className="relative z-10">{COPY.cta1[lang]}</span>
             <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-700 group-hover:translate-x-full" />
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            to="/contact"
             className="rounded-full border border-white/25 bg-white/5 px-8 py-3.5 text-[0.7rem] font-medium uppercase tracking-[0.3em] text-white backdrop-blur-md transition hover:border-[#c9a84c] hover:bg-[#c9a84c]/10 hover:text-[#e8c98a]"
           >
             {COPY.cta2[lang]}
-          </a>
+          </Link>
         </div>
 
         {/* Scroll cue */}
