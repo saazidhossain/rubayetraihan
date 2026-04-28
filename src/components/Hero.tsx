@@ -183,18 +183,25 @@ export function Hero({ lang }: HeroProps) {
           </p>
         </div>
 
-        {/* Headline — large serif, bilingual layered */}
+        {/* Headline — large serif, bilingual layered.
+            Sizes use clamp() so the EN and BN renderings hit the same
+            optical scale across mobile (375px) and desktop (1440px+).
+            The font-display-bn class then applies a 0.9× cap-height
+            correction inside .hero so Bengali sits on the same baseline. */}
         <h1
           lang={lang}
           className={`hero-headline max-w-5xl ${
             lang === "bn" ? "font-display-bn" : "font-display-en"
           }`}
+          style={{
+            fontSize: "clamp(2.75rem, 8.4vw, 5.5rem)",
+          }}
         >
-          <span className="block text-5xl font-light text-white sm:text-7xl lg:text-[5.5rem]">
+          <span className="block font-light text-white">
             <span className="hero-line inline-block">{COPY.headlineLineA[lang]}</span>
           </span>
           <span
-            className="block text-5xl font-light italic sm:text-7xl lg:text-[5.5rem]"
+            className="block font-light italic"
             style={{
               background:
                 "linear-gradient(180deg, #f5d98a 0%, #c9a84c 55%, #8c6a1f 100%)",
