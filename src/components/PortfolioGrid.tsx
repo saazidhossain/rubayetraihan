@@ -34,8 +34,10 @@ export function PortfolioGrid({ lang = "en" }: Props) {
           </p>
           <h2
             id="portfolio-heading"
-            className="mt-3 text-3xl font-light tracking-tight text-foreground sm:text-5xl"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
+            lang={lang}
+            className={`mt-3 text-3xl font-light tracking-tight text-foreground sm:text-5xl ${
+              lang === "bn" ? "font-display-bn" : "font-display-en"
+            }`}
           >
             {lang === "bn"
               ? "ধাতু, পণ্য এবং সারফেসের শিল্প"
