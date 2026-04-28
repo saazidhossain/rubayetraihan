@@ -327,3 +327,32 @@ export const getRelatedProjects = (project: PortfolioProject, limit = 3) =>
 
 export const categoryLabel = (id: CategoryId, lang: "en" | "bn" = "en") =>
   categories.find((c) => c.id === id)?.label[lang] ?? id;
+
+// ---------- Artist profile (sourced from Behance, Apr 2026) ----------
+
+export const artistProfile = {
+  name: { en: "Rubayat Raihan", bn: "রুবায়াত রায়হান" },
+  basedIn: "Bangladesh",
+  memberSince: "January 2021",
+  availability: {
+    en: "Available for freelance & full-time",
+    bn: "ফ্রিল্যান্স ও ফুল-টাইমের জন্য উপলব্ধ",
+  },
+  behance: "https://www.behance.net/rubayatraihan",
+};
+
+/**
+ * Map of internal project slugs to the matching public Behance gallery URL.
+ * Sourced from https://www.behance.net/rubayatraihan (Apr 2026).
+ */
+export const behanceLinks: Record<string, string> = {
+  "brass-relief-i":
+    "https://www.behance.net/gallery/242500191/Relief-work-on-Brass-sheet-(-Metal-patina-1824)",
+  "brass-relief-ii": "https://www.behance.net/gallery/242598451/Brass-Metal-Patina",
+  "brass-relief-v": "https://www.behance.net/gallery/242598659/Unbound-(1212)",
+  "wall-clock": "https://www.behance.net/gallery/242598743/Wall-Clock",
+  "lampshade-i":
+    "https://www.behance.net/gallery/242597433/Lampshade-using-traditional-technique",
+  "installation-i": "https://www.behance.net/gallery/242598331/Installation-art",
+  "tie-dye-i": "https://www.behance.net/gallery/242598557/Circle-of-Life",
+};
