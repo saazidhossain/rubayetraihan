@@ -137,25 +137,16 @@ export function Hero({ lang }: HeroProps) {
           <a href="#" className="group flex items-center gap-3">
             <BrandLogo className="h-10 w-10 transition-transform duration-700 group-hover:rotate-[20deg]" />
             <span className="leading-tight">
-              <span
-                className="block text-[0.95rem] tracking-[0.18em] text-white"
-                style={{ fontFamily: "'Instrument Serif', serif" }}
-              >
+              <span className="font-display-en block text-[0.95rem] tracking-[0.18em] text-white">
                 Rubayat Raihan
               </span>
-              <span
-                className="block text-[0.65rem] uppercase tracking-[0.32em] text-[#c9a84c]"
-                style={{ fontFamily: "'Work Sans', sans-serif" }}
-              >
+              <span className="font-body-en block text-[0.65rem] uppercase tracking-[0.32em] text-[#c9a84c]">
                 Maker · Studio
               </span>
             </span>
           </a>
 
-          <nav
-            className="hidden items-center gap-8 text-[0.7rem] uppercase tracking-[0.3em] text-white/70 md:flex"
-            style={{ fontFamily: "'Work Sans', sans-serif" }}
-          >
+          <nav className="font-body-en hidden items-center gap-8 text-[0.7rem] uppercase tracking-[0.3em] text-white/70 md:flex">
             <a href="#portfolio" className="transition hover:text-white">Work</a>
             <a href="#about" className="transition hover:text-white">About</a>
             <a href="#contact" className="transition hover:text-white">Contact</a>
