@@ -96,7 +96,7 @@ function Index() {
           </div>
           <div className="font-body-en flex flex-wrap gap-4 text-[0.65rem] uppercase tracking-[0.3em] text-white/50">
             <a
-              href={artistProfile.behance}
+              href={artistProfile?.behance ?? "https://www.behance.net/rubayatraihan"}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white"
