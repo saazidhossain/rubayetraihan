@@ -132,23 +132,27 @@ function Index() {
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex flex-col items-center gap-1 sm:items-end"
-              aria-label="Crafted by A Sazid Hossain Architecture"
+              aria-label={
+                lang === "bn"
+                  ? "একটি সাজিদ হোসেন স্থাপত্য"
+                  : "A Sazid Hossain Architecture"
+              }
             >
-              <span className="font-body-en text-[0.55rem] uppercase tracking-[0.4em] text-white/30 transition-colors duration-500 group-hover:text-[#e8c98a]">
-                Crafted by
-              </span>
-              <span
-                lang="en"
-                className="font-display-en bg-gradient-to-r from-[#e8c98a] via-[#f3dcae] to-[#b8893f] bg-clip-text text-sm font-light tracking-[0.18em] text-transparent transition-all duration-500 group-hover:tracking-[0.22em] sm:text-base"
-              >
-                A SAZID HOSSAIN ARCHITECTURE
-              </span>
-              <span
-                lang="bn"
-                className="font-display-bn text-xs text-white/40 transition-colors duration-500 group-hover:text-[#e8c98a]/80 sm:text-sm"
-              >
-                একটি সাজিদ হোসেন স্থাপত্য
-              </span>
+              {lang === "bn" ? (
+                <span
+                  lang="bn"
+                  className="font-display-bn bg-gradient-to-r from-[#e8c98a] via-[#f3dcae] to-[#b8893f] bg-clip-text text-sm font-light tracking-[0.08em] text-transparent transition-all duration-500 group-hover:tracking-[0.12em] sm:text-base"
+                >
+                  একটি সাজিদ হোসেন স্থাপত্য
+                </span>
+              ) : (
+                <span
+                  lang="en"
+                  className="font-display-en bg-gradient-to-r from-[#e8c98a] via-[#f3dcae] to-[#b8893f] bg-clip-text text-sm font-light tracking-[0.18em] text-transparent transition-all duration-500 group-hover:tracking-[0.22em] sm:text-base"
+                >
+                  A SAZID HOSSAIN ARCHITECTURE
+                </span>
+              )}
               <span className="mt-1 h-px w-16 origin-left scale-x-0 bg-gradient-to-r from-[#e8c98a] to-transparent transition-transform duration-500 group-hover:scale-x-100" />
             </a>
           </div>
