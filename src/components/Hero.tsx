@@ -262,13 +262,10 @@ export function Hero({ lang }: HeroProps) {
               (label, i) => (
                 <span key={i} className="flex items-center gap-12">
                   <span
-                    className="text-[0.7rem] uppercase tracking-[0.4em] text-white/60"
-                    style={{
-                      fontFamily:
-                        lang === "bn"
-                          ? "'Hind Siliguri', sans-serif"
-                          : "'Work Sans', sans-serif",
-                    }}
+                    lang={lang}
+                    className={`text-[0.7rem] uppercase tracking-[0.4em] text-white/60 ${
+                      lang === "bn" ? "font-body-bn" : "font-body-en"
+                    }`}
                   >
                     {label}
                   </span>
