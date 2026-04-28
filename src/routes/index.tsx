@@ -30,6 +30,20 @@ export const Route = createFileRoute("/")({
 function Index() {
   const { lang } = useLanguage();
 
+  // Diagnostic: surface missing artist profile fields early so data issues are obvious.
+  if (typeof window !== "undefined") {
+    if (!artistProfile) {
+      console.error("[artistProfile] module export is undefined — check src/data/portfolio.ts");
+    } else {
+      const required = ["basedIn", "memberSince", "behance"] as const;
+      for (const field of required) {
+        if (!artistProfile[field]) {
+          console.warn(`[artistProfile] missing field: "${field}"`);
+        }
+      }
+    }
+  }
+
   return (
     <main className="min-h-screen bg-[#0a0907] text-white">
       <Hero lang={lang} />
@@ -108,9 +122,37 @@ function Index() {
             </Link>
           </div>
         </div>
-        <p className="font-body-en mt-10 text-center text-[0.6rem] uppercase tracking-[0.3em] text-white/30">
-          © {new Date().getFullYear()} Rubayat Raihan
-        </p>
+        <div className="mt-12 border-t border-white/10 pt-8">
+          <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 text-center sm:flex-row sm:justify-between sm:text-left">
+            <p className="font-body-en text-[0.6rem] uppercase tracking-[0.3em] text-white/30">
+              © {new Date().getFullYear()} Rubayat Raihan
+            </p>
+            <a
+              href="https://www.behance.net/saazidhossain"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex flex-col items-center gap-1 sm:items-end"
+              aria-label="Crafted by A Sazid Hossain Architecture"
+            >
+              <span className="font-body-en text-[0.55rem] uppercase tracking-[0.4em] text-white/30 transition-colors duration-500 group-hover:text-[#e8c98a]">
+                Crafted by
+              </span>
+              <span
+                lang="en"
+                className="font-display-en bg-gradient-to-r from-[#e8c98a] via-[#f3dcae] to-[#b8893f] bg-clip-text text-sm font-light tracking-[0.18em] text-transparent transition-all duration-500 group-hover:tracking-[0.22em] sm:text-base"
+              >
+                A SAZID HOSSAIN ARCHITECTURE
+              </span>
+              <span
+                lang="bn"
+                className="font-display-bn text-xs text-white/40 transition-colors duration-500 group-hover:text-[#e8c98a]/80 sm:text-sm"
+              >
+                একটি সাজিদ হোসেন স্থাপত্য
+              </span>
+              <span className="mt-1 h-px w-16 origin-left scale-x-0 bg-gradient-to-r from-[#e8c98a] to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+            </a>
+          </div>
+        </div>
       </footer>
     </main>
   );
