@@ -333,10 +333,34 @@
    Instrument Serif lines above and below. */
 .hero .font-display-en {
   line-height: 0.96;
+  letter-spacing: -0.018em;
 }
 .hero .font-display-bn {
-  line-height: 1.06;
+  /* Bengali needs more headroom so the mātrā stroke isn't clipped by
+     the parent's overflow:hidden during the rise animation. */
+  line-height: 1.1;
   font-size: calc(1em * 0.9);
+  letter-spacing: -0.005em;
+  /* Reserve space for descenders + matra so the line doesn't visually
+     drift up vs. the english version at the same px size. */
+  padding-block: 0.04em;
+}
+
+/* When the layered "echo" line in the alternate script appears,
+   keep its baseline aligned regardless of script. */
+.hero .font-echo-bn {
+  line-height: 1.35;
+  font-size: calc(1em * 0.92);
+}
+.hero .font-echo-en {
+  line-height: 1.25;
+}
+
+/* Mobile: pull leading in slightly so two-line headlines don't break
+   the vertical rhythm of the section on small viewports. */
+@media (max-width: 640px) {
+  .hero .font-display-en { line-height: 1.02; }
+  .hero .font-display-bn { line-height: 1.18; font-size: calc(1em * 0.88); }
 }
 
 /* When the layered "echo" line in the alternate script appears,
