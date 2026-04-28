@@ -234,3 +234,118 @@
     animation: none;
   }
 }
+
+/* ===========================================================
+   Bilingual typography system
+   -----------------------------------------------------------
+   Bengali display glyphs (mātrā + descenders) read visually
+   larger than Latin at identical font-size and need a tighter
+   line-height to align with the same rhythmic baseline. The
+   classes below let us mark a block by script and get pixel-
+   tuned size, leading and tracking automatically.
+   =========================================================== */
+
+:root {
+  /* Optical-size correction: Bengali display glyphs sit ~8% taller
+     than Latin at the same px because of the head-stroke (mātrā). */
+  --bn-optical-scale: 0.92;
+}
+
+/* Display-grade English (Instrument Serif) */
+.font-display-en {
+  font-family:
+    "Instrument Serif",
+    "Cormorant Garamond",
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-feature-settings:
+    "liga" 1,
+    "dlig" 1,
+    "calt" 1,
+    "kern" 1;
+  font-optical-sizing: auto;
+  letter-spacing: -0.012em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+/* Display-grade Bengali (Tiro Bangla — designed as a display
+   companion to Latin serifs, with proper conjuncts). Falls
+   back to Noto Serif Bengali, then to system Bengali fonts. */
+.font-display-bn {
+  font-family:
+    "Tiro Bangla",
+    "Noto Serif Bengali",
+    "Kalpurush",
+    "SolaimanLipi",
+    "Vrinda",
+    serif;
+  font-feature-settings:
+    "liga" 1,
+    "calt" 1,
+    "kern" 1;
+  font-optical-sizing: auto;
+  /* Bengali needs slightly more leading than Latin display because
+     of the mātrā above and descenders below the x-height. */
+  line-height: 1.18;
+  letter-spacing: 0;
+  /* Compensate for the larger visual size of Bengali glyphs so a
+     bilingual headline keeps the same overall optical scale. */
+  font-size: calc(1em * var(--bn-optical-scale));
+  text-wrap: balance;
+}
+
+/* Body-grade pair */
+.font-body-en {
+  font-family:
+    "Work Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-feature-settings:
+    "liga" 1,
+    "kern" 1,
+    "ss01" 1;
+  letter-spacing: 0.005em;
+  line-height: 1.6;
+}
+
+.font-body-bn {
+  font-family:
+    "Hind Siliguri",
+    "Noto Sans Bengali",
+    "Kalpurush",
+    "SolaimanLipi",
+    sans-serif;
+  font-feature-settings:
+    "liga" 1,
+    "kern" 1;
+  letter-spacing: 0;
+  line-height: 1.7;
+  font-size: calc(1em * 0.96);
+}
+
+/* Hero headline-specific tightening — only applied inside .hero so it
+   doesn't bleed into other sections. Bengali display in the hero is
+   tightened further so it sits on the same baseline grid as the
+   Instrument Serif lines above and below. */
+.hero .font-display-en {
+  line-height: 0.96;
+}
+.hero .font-display-bn {
+  line-height: 1.06;
+  font-size: calc(1em * 0.9);
+}
+
+/* When the layered "echo" line in the alternate script appears,
+   keep its baseline aligned regardless of script. */
+.hero .font-echo-bn {
+  line-height: 1.3;
+  font-size: calc(1em * 0.94);
+}
+.hero .font-echo-en {
+  line-height: 1.25;
+}
+
