@@ -60,8 +60,9 @@ function Index() {
                 : "From a small studio in Bangladesh — hand-forged brass relief, lighting, surface and installation work. Each piece is made to order; no two are the same."}
             </p>
             <p className="font-body-en mt-6 text-sm text-white/60">
-              {artistProfile.basedIn} · {lang === "bn" ? "সদস্য" : "Member"}{" "}
-              {artistProfile.memberSince} ·{" "}
+              {artistProfile?.basedIn ?? "Bangladesh"} ·{" "}
+              {lang === "bn" ? "সদস্য" : "Member"}{" "}
+              {artistProfile?.memberSince ?? "January 2021"} ·{" "}
               {lang === "bn"
                 ? "ফ্রিল্যান্স ও ফুল-টাইমের জন্য উপলব্ধ"
                 : "Available for freelance & full-time"}
@@ -95,7 +96,7 @@ function Index() {
           </div>
           <div className="font-body-en flex flex-wrap gap-4 text-[0.65rem] uppercase tracking-[0.3em] text-white/50">
             <a
-              href={artistProfile.behance}
+              href={artistProfile?.behance ?? "https://www.behance.net/rubayatraihan"}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white"
