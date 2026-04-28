@@ -78,8 +78,9 @@ export function PortfolioGrid({ lang = "en" }: Props) {
               animationDelay: `${idx * 60}ms`,
             }}
           >
-            <a
-              href={`#project-${project.slug}`}
+            <Link
+              to="/work/$slug"
+              params={{ slug: project.slug }}
               className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <div className="relative aspect-[4/5] overflow-hidden">
@@ -97,26 +98,30 @@ export function PortfolioGrid({ lang = "en" }: Props) {
 
                 {/* Glass info card */}
                 <div className="absolute inset-x-3 bottom-3 rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 sm:translate-y-2 sm:opacity-95">
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-white/70">
+                  <p className="font-body-en text-[10px] uppercase tracking-[0.25em] text-white/70">
                     {categories.find((c) => c.id === project.category)?.label[lang]}
                   </p>
                   <h3
-                    className="mt-1 text-lg font-medium leading-snug text-white"
-                    style={{ fontFamily: "'Instrument Serif', serif" }}
+                    lang={lang}
+                    className={`mt-1 text-lg font-medium leading-snug text-white ${
+                      lang === "bn" ? "font-display-bn" : "font-display-en"
+                    }`}
                   >
                     {project.title[lang]}
                   </h3>
                   <p
+                    lang={lang}
                     className={cn(
                       "mt-1 line-clamp-2 text-xs text-white/75 transition-all duration-500",
                       "max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100",
+                      lang === "bn" ? "font-body-bn" : "font-body-en",
                     )}
                   >
                     {project.description[lang]}
                   </p>
                 </div>
               </div>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
