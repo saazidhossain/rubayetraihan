@@ -30,6 +30,20 @@ export const Route = createFileRoute("/")({
 function Index() {
   const { lang } = useLanguage();
 
+  // Diagnostic: surface missing artist profile fields early so data issues are obvious.
+  if (typeof window !== "undefined") {
+    if (!artistProfile) {
+      console.error("[artistProfile] module export is undefined — check src/data/portfolio.ts");
+    } else {
+      const required = ["basedIn", "memberSince", "behance"] as const;
+      for (const field of required) {
+        if (!artistProfile[field]) {
+          console.warn(`[artistProfile] missing field: "${field}"`);
+        }
+      }
+    }
+  }
+
   return (
     <main className="min-h-screen bg-[#0a0907] text-white">
       <Hero lang={lang} />
