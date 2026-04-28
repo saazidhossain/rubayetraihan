@@ -137,25 +137,16 @@ export function Hero({ lang }: HeroProps) {
           <a href="#" className="group flex items-center gap-3">
             <BrandLogo className="h-10 w-10 transition-transform duration-700 group-hover:rotate-[20deg]" />
             <span className="leading-tight">
-              <span
-                className="block text-[0.95rem] tracking-[0.18em] text-white"
-                style={{ fontFamily: "'Instrument Serif', serif" }}
-              >
+              <span className="font-display-en block text-[0.95rem] tracking-[0.18em] text-white">
                 Rubayat Raihan
               </span>
-              <span
-                className="block text-[0.65rem] uppercase tracking-[0.32em] text-[#c9a84c]"
-                style={{ fontFamily: "'Work Sans', sans-serif" }}
-              >
+              <span className="font-body-en block text-[0.65rem] uppercase tracking-[0.32em] text-[#c9a84c]">
                 Maker · Studio
               </span>
             </span>
           </a>
 
-          <nav
-            className="hidden items-center gap-8 text-[0.7rem] uppercase tracking-[0.3em] text-white/70 md:flex"
-            style={{ fontFamily: "'Work Sans', sans-serif" }}
-          >
+          <nav className="font-body-en hidden items-center gap-8 text-[0.7rem] uppercase tracking-[0.3em] text-white/70 md:flex">
             <a href="#portfolio" className="transition hover:text-white">Work</a>
             <a href="#about" className="transition hover:text-white">About</a>
             <a href="#contact" className="transition hover:text-white">Contact</a>
@@ -183,36 +174,28 @@ export function Hero({ lang }: HeroProps) {
         <div className="mb-8 flex items-center gap-4">
           <span className="h-px w-14 bg-gradient-to-r from-transparent via-[#c9a84c] to-[#c9a84c]" />
           <p
-            className="text-[0.7rem] uppercase tracking-[0.45em] text-[#e8c98a]"
-            style={{
-              fontFamily:
-                lang === "bn" ? "'Hind Siliguri', sans-serif" : "'Work Sans', sans-serif",
-            }}
+            lang={lang}
+            className={`text-[0.7rem] uppercase tracking-[0.45em] text-[#e8c98a] ${
+              lang === "bn" ? "font-body-bn" : "font-body-en"
+            }`}
           >
             {COPY.eyebrow[lang]}
           </p>
         </div>
 
         {/* Headline — large serif, bilingual layered */}
-        <h1 className="hero-headline max-w-5xl">
-          <span
-            className="block text-5xl font-light leading-[0.98] text-white sm:text-7xl lg:text-[5.5rem]"
-            style={{
-              fontFamily:
-                lang === "bn"
-                  ? "'Noto Serif Bengali', serif"
-                  : "'Instrument Serif', serif",
-            }}
-          >
+        <h1
+          lang={lang}
+          className={`hero-headline max-w-5xl ${
+            lang === "bn" ? "font-display-bn" : "font-display-en"
+          }`}
+        >
+          <span className="block text-5xl font-light text-white sm:text-7xl lg:text-[5.5rem]">
             <span className="hero-line inline-block">{COPY.headlineLineA[lang]}</span>
           </span>
           <span
-            className="block text-5xl font-light italic leading-[0.98] sm:text-7xl lg:text-[5.5rem]"
+            className="block text-5xl font-light italic sm:text-7xl lg:text-[5.5rem]"
             style={{
-              fontFamily:
-                lang === "bn"
-                  ? "'Noto Serif Bengali', serif"
-                  : "'Instrument Serif', serif",
               background:
                 "linear-gradient(180deg, #f5d98a 0%, #c9a84c 55%, #8c6a1f 100%)",
               WebkitBackgroundClip: "text",
@@ -229,24 +212,20 @@ export function Hero({ lang }: HeroProps) {
         {/* Echo of the headline in the other script — subtle, decorative */}
         <p
           aria-hidden
-          className="mt-3 text-base font-light tracking-wide text-white/30 sm:text-lg"
-          style={{
-            fontFamily:
-              otherLang === "bn"
-                ? "'Noto Serif Bengali', serif"
-                : "'Instrument Serif', serif",
-          }}
+          lang={otherLang}
+          className={`mt-3 text-base font-light tracking-wide text-white/30 sm:text-lg ${
+            otherLang === "bn" ? "font-display-bn font-echo-bn" : "font-display-en font-echo-en"
+          }`}
         >
           {COPY.headlineLineA[otherLang]} {COPY.headlineLineB[otherLang]}
         </p>
 
         {/* Subhead */}
         <p
-          className="mt-8 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg"
-          style={{
-            fontFamily:
-              lang === "bn" ? "'Hind Siliguri', sans-serif" : "'Work Sans', sans-serif",
-          }}
+          lang={lang}
+          className={`mt-8 max-w-2xl text-base text-white/75 sm:text-lg ${
+            lang === "bn" ? "font-body-bn" : "font-body-en"
+          }`}
         >
           {COPY.subhead[lang]}
         </p>
@@ -283,13 +262,10 @@ export function Hero({ lang }: HeroProps) {
               (label, i) => (
                 <span key={i} className="flex items-center gap-12">
                   <span
-                    className="text-[0.7rem] uppercase tracking-[0.4em] text-white/60"
-                    style={{
-                      fontFamily:
-                        lang === "bn"
-                          ? "'Hind Siliguri', sans-serif"
-                          : "'Work Sans', sans-serif",
-                    }}
+                    lang={lang}
+                    className={`text-[0.7rem] uppercase tracking-[0.4em] text-white/60 ${
+                      lang === "bn" ? "font-body-bn" : "font-body-en"
+                    }`}
                   >
                     {label}
                   </span>

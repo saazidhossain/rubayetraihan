@@ -1,28 +1,42 @@
 /**
  * Rubayat Raihan — Portfolio Asset Library
  * --------------------------------------------------
- * Single source of truth for projects, images, videos
- * and thumbnails. Bilingual fields (en + bn) are
- * included for the language toggle.
+ * Sourced from the artist's Google Drive (Apr 2026 import).
+ * Bilingual (en + bn) for the language toggle.
  *
- * Categories follow the structure document:
- *  - Metal Art        (Relief Work, Patina)
- *  - Product Design   (Lampshades, Wall Clocks, Leather)
- *  - Surface Design   (Tie-dye, Experimental)
- *  - Fashion Design   (Dress Concepts, Illustration)
- *  - Installation Art
+ * Categories:
+ *  - Metal Art        (Brass relief work)
+ *  - Product Design   (Lampshades, Wall Clocks)
+ *  - Surface Design   (Tie-dye, Surface)
+ *  - Installation Art (Experimental, Installation)
  */
 
-import metalPeacock from "@/assets/portfolio/metal-peacock-relief.jpg";
-import metalGeometric from "@/assets/portfolio/metal-geometric-relief.jpg";
-import productLampshade from "@/assets/portfolio/product-lampshade.jpg";
-import productWallclock from "@/assets/portfolio/product-wallclock.jpg";
-import productLeatherBag from "@/assets/portfolio/product-leather-bag.jpg";
-import surfaceShibori from "@/assets/portfolio/surface-shibori.jpg";
-import surfaceExperimental from "@/assets/portfolio/surface-experimental.jpg";
-import fashionDress from "@/assets/portfolio/fashion-dress-concept.jpg";
-import fashionIllustration from "@/assets/portfolio/fashion-illustration.jpg";
-import installationSuspended from "@/assets/portfolio/installation-suspended.jpg";
+// Metal relief
+import metalRelief1 from "@/assets/portfolio/real/metal-relief-1.jpg";
+import metalRelief2 from "@/assets/portfolio/real/metal-relief-2.jpg";
+import metalRelief3 from "@/assets/portfolio/real/metal-relief-3.jpg";
+import metalRelief4 from "@/assets/portfolio/real/metal-relief-4.jpg";
+import metalRelief4a from "@/assets/portfolio/real/metal-relief-4a.jpg";
+import metalRelief5 from "@/assets/portfolio/real/metal-relief-5.jpg";
+
+// Product
+import lampshade1 from "@/assets/portfolio/real/lampshade-1.jpg";
+import lampshade1a from "@/assets/portfolio/real/lampshade-1a.jpg";
+import lampshade1b from "@/assets/portfolio/real/lampshade-1b.jpg";
+import lampshade2 from "@/assets/portfolio/real/lampshade-2.jpg";
+import wallclock1 from "@/assets/portfolio/real/wallclock-1.jpg";
+
+// Surface
+import surface1 from "@/assets/portfolio/real/surface-1.jpg";
+import surface2 from "@/assets/portfolio/real/surface-2.jpg";
+import surface3 from "@/assets/portfolio/real/surface-3.jpg";
+import tiedye1 from "@/assets/portfolio/real/tiedye-1.jpg";
+import tiedye2 from "@/assets/portfolio/real/tiedye-2.jpg";
+
+// Installation / Experimental
+import installation1 from "@/assets/portfolio/real/installation-1.jpg";
+import installation2 from "@/assets/portfolio/real/installation-2.jpg";
+import experimental1 from "@/assets/portfolio/real/experimental-1.jpg";
 
 export type CategoryId =
   | "metal_art"
@@ -37,13 +51,9 @@ export interface Bilingual {
 }
 
 export interface ProjectMedia {
-  /** Primary hero/thumbnail image (1280x1600 recommended). */
   image: string;
-  /** Optional additional gallery images. */
   gallery?: string[];
-  /** Optional embedded video URLs (YouTube, Vimeo, mp4). */
   videos?: string[];
-  /** Optional dedicated low-res thumbnail. Falls back to `image`. */
   thumbnail?: string;
 }
 
@@ -77,153 +87,225 @@ export const categories: Category[] = [
 ];
 
 export const projects: PortfolioProject[] = [
+  // ========== METAL RELIEF ON BRASS ==========
   {
-    id: "p-001",
-    slug: "peacock-relief",
+    id: "p-mr-01",
+    slug: "brass-relief-i",
     category: "metal_art",
     featured: true,
     year: 2024,
-    title: { en: "Peacock — Brass Relief", bn: "ময়ূর — ব্রাস রিলিফ" },
+    title: { en: "Brass Relief — Study I", bn: "ব্রাস রিলিফ — অধ্যয়ন ১" },
     description: {
-      en: "Hand-hammered brass relief inspired by traditional Bengali peacock motifs, finished with a warm copper patina.",
-      bn: "ঐতিহ্যবাহী বাংলা ময়ূর মোটিফ থেকে অনুপ্রাণিত হাতে-হাতুড়িকৃত ব্রাস রিলিফ, উষ্ণ কপার প্যাটিনায় সম্পন্ন।",
+      en: "Hand-hammered relief work on brass sheet — a foundational study in repoussé and chasing inspired by the folk motifs of Bengal.",
+      bn: "ব্রাস শীটে হাতে-হাতুড়িকৃত রিলিফ — বাংলার লোকজ মোটিফে অনুপ্রাণিত রিপুসে ও চেজিং-এর মৌলিক অনুশীলন।",
     },
-    materials: { en: "Brass sheet, copper patina", bn: "ব্রাস শীট, কপার প্যাটিনা" },
-    techniques: { en: "Repoussé, chasing, patination", bn: "রিপুসে, চেজিং, প্যাটিনেশন" },
-    dimensions: "60 × 75 cm",
+    materials: { en: "Brass sheet", bn: "ব্রাস শীট" },
+    techniques: { en: "Repoussé, chasing", bn: "রিপুসে, চেজিং" },
     commercialIntent: "Collector / commission",
-    media: { image: metalPeacock },
+    media: { image: metalRelief1 },
   },
   {
-    id: "p-002",
-    slug: "geometric-relief",
+    id: "p-mr-02",
+    slug: "brass-relief-ii",
     category: "metal_art",
     featured: true,
     year: 2024,
-    title: { en: "Geometric Light Relief", bn: "জ্যামিতিক আলোক রিলিফ" },
+    title: { en: "Brass Relief — Study II", bn: "ব্রাস রিলিফ — অধ্যয়ন ২" },
     description: {
-      en: "Sculptural copper and brass wall piece exploring Islamic-inspired geometry and the play of light through cut metal.",
-      bn: "ইসলামিক জ্যামিতি এবং কাটা ধাতুর মাধ্যমে আলোর খেলা অন্বেষণকারী একটি ভাস্কর্যিক তামা ও ব্রাস ওয়াল পিস।",
+      en: "A second relief composition exploring layered depth and the warm patina that emerges from the working of raw brass.",
+      bn: "একটি দ্বিতীয় রিলিফ কম্পোজিশন — স্তরে স্তরে গভীরতা এবং কাঁচা ব্রাসের কাজ থেকে আবির্ভূত উষ্ণ প্যাটিনার অন্বেষণ।",
     },
-    materials: { en: "Copper, brass, oxidized finish", bn: "তামা, ব্রাস, অক্সিডাইজড ফিনিশ" },
-    techniques: { en: "Plasma cutting, hand finishing", bn: "প্লাজমা কাটিং, হাতে ফিনিশিং" },
-    dimensions: "90 × 70 cm",
-    media: { image: metalGeometric },
+    materials: { en: "Brass sheet, hand-applied patina", bn: "ব্রাস শীট, হাতে প্রয়োগকৃত প্যাটিনা" },
+    media: { image: metalRelief2 },
   },
   {
-    id: "p-003",
-    slug: "pierced-lampshade",
+    id: "p-mr-03",
+    slug: "brass-relief-iii",
+    category: "metal_art",
+    year: 2024,
+    title: { en: "Brass Relief — Study III", bn: "ব্রাস রিলিফ — অধ্যয়ন ৩" },
+    description: {
+      en: "A larger format brass panel pushing the figure further into three dimensions through deep repoussé.",
+      bn: "গভীর রিপুসের মাধ্যমে চিত্রকে ত্রিমাত্রিকতায় আরও এগিয়ে নেওয়া একটি বৃহৎ ফরম্যাট ব্রাস প্যানেল।",
+    },
+    materials: { en: "Brass sheet", bn: "ব্রাস শীট" },
+    media: { image: metalRelief3 },
+  },
+  {
+    id: "p-mr-04",
+    slug: "brass-relief-iv",
+    category: "metal_art",
+    year: 2024,
+    title: { en: "Brass Relief — Study IV", bn: "ব্রাস রিলিফ — অধ্যয়ন ৪" },
+    description: {
+      en: "An intimate panel focused on surface texture and the dialogue between polished and oxidised brass.",
+      bn: "সারফেস টেক্সচার এবং পালিশ ও অক্সিডাইজড ব্রাসের সংলাপের উপর কেন্দ্রীভূত একটি ঘনিষ্ঠ প্যানেল।",
+    },
+    materials: { en: "Brass sheet", bn: "ব্রাস শীট" },
+    media: { image: metalRelief4, gallery: [metalRelief4a] },
+  },
+  {
+    id: "p-mr-05",
+    slug: "brass-relief-v",
+    category: "metal_art",
+    featured: true,
+    year: 2025,
+    title: { en: "Brass Relief — Study V", bn: "ব্রাস রিলিফ — অধ্যয়ন ৫" },
+    description: {
+      en: "The most recent piece in the series — a confident, large-scale brass relief intended for architectural display.",
+      bn: "সিরিজের সাম্প্রতিকতম কাজ — স্থাপত্য প্রদর্শনের জন্য একটি আত্মবিশ্বাসী, বৃহৎ-পরিসরের ব্রাস রিলিফ।",
+    },
+    materials: { en: "Brass sheet", bn: "ব্রাস শীট" },
+    commercialIntent: "Architectural commission",
+    media: { image: metalRelief5 },
+  },
+
+  // ========== PRODUCT DESIGN ==========
+  {
+    id: "p-pd-01",
+    slug: "lampshade-i",
     category: "product_design",
     featured: true,
     year: 2025,
-    title: { en: "Pierced Brass Lampshade", bn: "পিয়ার্সড ব্রাস ল্যাম্পশেড" },
+    title: { en: "Lampshade — Sculptural Pendant I", bn: "ল্যাম্পশেড — ভাস্কর্যিক পেন্ডেন্ট ১" },
     description: {
-      en: "A pierced brass pendant that projects intricate floral shadows across the room — sculpture and lighting in one.",
-      bn: "একটি পিয়ার্সড ব্রাস পেন্ডেন্ট যা ঘর জুড়ে জটিল ফুলের ছায়া প্রজেক্ট করে — ভাস্কর্য এবং আলো একসাথে।",
+      en: "A sculptural pendant lampshade — light, shadow and material studied as a single living object.",
+      bn: "একটি ভাস্কর্যিক পেন্ডেন্ট ল্যাম্পশেড — আলো, ছায়া ও উপাদানকে একক জীবন্ত বস্তু হিসেবে অধ্যয়ন।",
     },
-    materials: { en: "Brass, blackened finish", bn: "ব্রাস, ব্ল্যাকেন্ড ফিনিশ" },
-    techniques: { en: "Hand piercing, soldering", bn: "হাতে পিয়ার্সিং, সোল্ডারিং" },
-    dimensions: "Ø 32 × 28 cm",
+    materials: { en: "Mixed media", bn: "মিশ্র মাধ্যম" },
     commercialIntent: "Available for retail & hospitality",
-    media: { image: productLampshade },
+    media: { image: lampshade1, gallery: [lampshade1a, lampshade1b] },
   },
   {
-    id: "p-004",
-    slug: "copper-wallclock",
+    id: "p-pd-02",
+    slug: "lampshade-ii",
     category: "product_design",
+    year: 2025,
+    title: { en: "Lampshade — Sculptural Pendant II", bn: "ল্যাম্পশেড — ভাস্কর্যিক পেন্ডেন্ট ২" },
+    description: {
+      en: "A second lampshade exploration — softer silhouette, warmer cast.",
+      bn: "একটি দ্বিতীয় ল্যাম্পশেড অন্বেষণ — কোমলতর সিলুয়েট, উষ্ণতর আভা।",
+    },
+    media: { image: lampshade2 },
+  },
+  {
+    id: "p-pd-03",
+    slug: "wall-clock",
+    category: "product_design",
+    featured: true,
     year: 2024,
-    title: { en: "Copper Gear Wall Clock", bn: "কপার গিয়ার ওয়াল ক্লক" },
+    title: { en: "Wall Clock — Bespoke Edition", bn: "ওয়াল ক্লক — বেসপোক সংস্করণ" },
     description: {
-      en: "A minimalist wall clock with a hand-hammered copper face and an exposed brass gear as a single sculptural detail.",
-      bn: "হাতে-হাতুড়িকৃত কপার ফেস এবং একটি একক ভাস্কর্যিক বিবরণ হিসাবে উন্মুক্ত ব্রাস গিয়ার সহ একটি মিনিমালিস্ট ওয়াল ক্লক।",
+      en: "A handcrafted wall clock that treats time-keeping as a quiet sculptural ritual on the wall.",
+      bn: "একটি হস্তনির্মিত ওয়াল ক্লক যা সময়-মাপনকে দেয়ালের নীরব ভাস্কর্যিক আচার হিসেবে দেখে।",
     },
-    materials: { en: "Copper, brass, steel hands", bn: "তামা, ব্রাস, স্টীল হ্যান্ডস" },
-    dimensions: "Ø 36 cm",
-    media: { image: productWallclock },
+    media: { image: wallclock1 },
   },
+
+  // ========== SURFACE DESIGN ==========
   {
-    id: "p-005",
-    slug: "embossed-leather-bag",
-    category: "product_design",
-    year: 2023,
-    title: { en: "Embossed Leather Messenger", bn: "এমবসড লেদার মেসেঞ্জার" },
-    description: {
-      en: "Vegetable-tanned leather messenger embossed with a traditional Bengali star motif, hand-stitched throughout.",
-      bn: "ঐতিহ্যবাহী বাংলা স্টার মোটিফ দিয়ে এমবস করা ভেজিটেবল-ট্যানড লেদার মেসেঞ্জার, সম্পূর্ণরূপে হাতে সেলাই করা।",
-    },
-    materials: { en: "Vegetable-tanned leather, brass hardware", bn: "ভেজিটেবল-ট্যানড লেদার, ব্রাস হার্ডওয়্যার" },
-    dimensions: "38 × 28 × 10 cm",
-    media: { image: productLeatherBag },
-  },
-  {
-    id: "p-006",
-    slug: "indigo-shibori",
+    id: "p-sd-01",
+    slug: "surface-i",
     category: "surface_design",
     featured: true,
     year: 2024,
-    title: { en: "Indigo Shibori Study", bn: "ইন্ডিগো শিবোরি স্টাডি" },
+    title: { en: "Surface Study I", bn: "সারফেস স্টাডি ১" },
     description: {
-      en: "Hand-dyed indigo shibori panel exploring resist-folding rhythm and the unpredictable bleed of natural dye.",
-      bn: "প্রাকৃতিক রঙের অপ্রত্যাশিত ব্লিড এবং রেজিস্ট-ফোল্ডিং ছন্দ অন্বেষণকারী হাতে-রঙ করা ইন্ডিগো শিবোরি প্যানেল।",
+      en: "A surface design study layering pigment, weave and accidental marks into a singular field.",
+      bn: "পিগমেন্ট, বুনন এবং আকস্মিক চিহ্নকে একটি একক ক্ষেত্রে স্তরিত করে গড়া সারফেস ডিজাইন স্টাডি।",
     },
-    materials: { en: "Cotton, natural indigo", bn: "সুতি, প্রাকৃতিক ইন্ডিগো" },
-    techniques: { en: "Itajime shibori, vat dyeing", bn: "ইতাজিমে শিবোরি, ভ্যাট ডাইং" },
-    media: { image: surfaceShibori },
+    materials: { en: "Cotton, dye, mixed media", bn: "সুতি, রঙ, মিশ্র মাধ্যম" },
+    media: { image: surface1 },
   },
   {
-    id: "p-007",
-    slug: "ember-brushstrokes",
+    id: "p-sd-02",
+    slug: "surface-ii",
+    category: "surface_design",
+    year: 2024,
+    title: { en: "Surface Study II", bn: "সারফেস স্টাডি ২" },
+    description: {
+      en: "A larger surface composition pushing scale, rhythm and the bleed of natural pigment.",
+      bn: "মাত্রা, ছন্দ এবং প্রাকৃতিক রঙের ছড়িয়ে পড়াকে এগিয়ে নেওয়া একটি বৃহত্তর সারফেস কম্পোজিশন।",
+    },
+    media: { image: surface2 },
+  },
+  {
+    id: "p-sd-03",
+    slug: "surface-iii",
     category: "surface_design",
     year: 2025,
-    title: { en: "Ember — Experimental Print", bn: "এম্বার — পরীক্ষামূলক প্রিন্ট" },
+    title: { en: "Surface Study III", bn: "সারফেস স্টাডি ৩" },
     description: {
-      en: "An experimental hand-painted surface in ember orange, charcoal and bone — built up in gestural layers on raw linen.",
-      bn: "এম্বার অরেঞ্জ, চারকোল এবং বোনে একটি পরীক্ষামূলক হাতে-আঁকা সারফেস — কাঁচা লিনেনে অঙ্গভঙ্গিমূলক স্তরে তৈরি।",
+      en: "A textural panel — material as language, where pattern emerges from process rather than plan.",
+      bn: "একটি টেক্সচারাল প্যানেল — উপাদানই ভাষা, যেখানে প্যাটার্ন পরিকল্পনার বদলে প্রক্রিয়া থেকে উদ্ভূত।",
     },
-    materials: { en: "Linen, fabric paint, ink", bn: "লিনেন, ফ্যাব্রিক পেইন্ট, কালি" },
-    media: { image: surfaceExperimental },
+    media: { image: surface3 },
   },
   {
-    id: "p-008",
-    slug: "copper-thread-dress",
-    category: "fashion_design",
+    id: "p-sd-04",
+    slug: "tie-dye-i",
+    category: "surface_design",
     featured: true,
-    year: 2025,
-    title: { en: "Copper Thread Concept Dress", bn: "কপার থ্রেড কনসেপ্ট ড্রেস" },
-    description: {
-      en: "A flowing concept piece blending traditional Bengali embroidery with metallic copper thread and contemporary silhouette.",
-      bn: "ঐতিহ্যবাহী বাংলা সূচিকর্মকে ধাতব তামার সুতা এবং সমকালীন সিলুয়েটের সাথে মিশ্রিত করে একটি প্রবাহিত কনসেপ্ট পিস।",
-    },
-    materials: { en: "Silk, copper thread, hand embroidery", bn: "সিল্ক, কপার থ্রেড, হাতে সূচিকর্ম" },
-    media: { image: fashionDress },
-  },
-  {
-    id: "p-009",
-    slug: "atelier-illustration",
-    category: "fashion_design",
     year: 2024,
-    title: { en: "Atelier Illustration Study", bn: "অ্যাটেলিয়ার ইলাস্ট্রেশন স্টাডি" },
+    title: { en: "Tie-Dye Study I", bn: "টাই-ডাই স্টাডি ১" },
     description: {
-      en: "Watercolour and ink fashion illustrations developed alongside textile swatches and lace studies on the studio table.",
-      bn: "স্টুডিও টেবিলে টেক্সটাইল সোয়াচ এবং লেস স্টাডির পাশাপাশি তৈরি করা জলরঙ এবং কালির ফ্যাশন ইলাস্ট্রেশন।",
+      en: "A traditional resist-dye study reinterpreting Bengali tie-dye craft into contemporary surface language.",
+      bn: "বাংলা টাই-ডাই কারুশিল্পকে সমকালীন সারফেস ভাষায় পুনর্ব্যাখ্যা করা একটি ঐতিহ্যবাহী রেজিস্ট-ডাই স্টাডি।",
     },
-    materials: { en: "Watercolour, ink, mixed media", bn: "জলরঙ, কালি, মিশ্র মাধ্যম" },
-    media: { image: fashionIllustration },
+    materials: { en: "Cotton, natural dye", bn: "সুতি, প্রাকৃতিক রঙ" },
+    techniques: { en: "Resist binding, vat dyeing", bn: "রেজিস্ট বাইন্ডিং, ভ্যাট ডাইং" },
+    media: { image: tiedye1 },
   },
   {
-    id: "p-010",
-    slug: "suspended-discs",
+    id: "p-sd-05",
+    slug: "tie-dye-ii",
+    category: "surface_design",
+    year: 2024,
+    title: { en: "Tie-Dye Study II", bn: "টাই-ডাই স্টাডি ২" },
+    description: {
+      en: "A second tie-dye exploration — tighter folds, deeper indigo, stronger negative space.",
+      bn: "একটি দ্বিতীয় টাই-ডাই অন্বেষণ — কঠিনতর ভাঁজ, গভীরতর ইন্ডিগো, দৃঢ়তর নেগেটিভ স্পেস।",
+    },
+    media: { image: tiedye2 },
+  },
+
+  // ========== INSTALLATION / EXPERIMENTAL ==========
+  {
+    id: "p-in-01",
+    slug: "installation-i",
     category: "installation_art",
     featured: true,
     year: 2025,
-    title: { en: "Suspended — Copper Discs", bn: "সাসপেন্ডেড — কপার ডিস্কস" },
+    title: { en: "Installation — Suspended I", bn: "ইনস্টলেশন — সাসপেন্ডেড ১" },
     description: {
-      en: "A site-specific gallery installation: dozens of hand-forged copper and brass discs suspended in mid-air, painting the walls in shadow.",
-      bn: "একটি সাইট-স্পেসিফিক গ্যালারি ইনস্টলেশন: কয়েক ডজন হাতে-ফোর্জড তামা এবং ব্রাস ডিস্ক বাতাসে স্থগিত, দেয়ালগুলিকে ছায়ায় রঙ করছে।",
+      en: "A site-specific installation where craft objects become an inhabited atmosphere rather than discrete works.",
+      bn: "একটি সাইট-স্পেসিফিক ইনস্টলেশন যেখানে কারুশিল্প-বস্তু আলাদা কাজের বদলে বসবাসযোগ্য পরিবেশে পরিণত হয়।",
     },
-    materials: { en: "Copper, brass, monofilament", bn: "তামা, ব্রাস, মনোফিলামেন্ট" },
-    dimensions: "Site-specific (≈ 3 × 2.5 m)",
-    media: { image: installationSuspended },
+    media: { image: installation1 },
+  },
+  {
+    id: "p-in-02",
+    slug: "installation-ii",
+    category: "installation_art",
+    year: 2025,
+    title: { en: "Installation — Suspended II", bn: "ইনস্টলেশন — সাসপেন্ডেড ২" },
+    description: {
+      en: "A second installation view — the same vocabulary of suspended elements seen at a different scale.",
+      bn: "একটি দ্বিতীয় ইনস্টলেশন দৃশ্য — সাসপেন্ডেড উপাদানের একই শব্দভাণ্ডার ভিন্ন মাত্রায় দেখা।",
+    },
+    media: { image: installation2 },
+  },
+  {
+    id: "p-ex-01",
+    slug: "experimental-i",
+    category: "installation_art",
+    year: 2024,
+    title: { en: "Experimental — Field Study", bn: "পরীক্ষামূলক — ক্ষেত্র অধ্যয়ন" },
+    description: {
+      en: "An experimental field study sitting between sculpture, surface and installation — early-stage research that feeds the rest of the practice.",
+      bn: "ভাস্কর্য, সারফেস ও ইনস্টলেশনের মাঝে অবস্থিত একটি পরীক্ষামূলক ক্ষেত্র অধ্যয়ন — প্রারম্ভিক গবেষণা যা অনুশীলনের অন্যান্য অংশকে পুষ্ট করে।",
+    },
+    media: { image: experimental1 },
   },
 ];
 
