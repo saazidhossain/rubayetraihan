@@ -42,9 +42,22 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      // Preload the two display faces actually used in the hero so the
+      // first paint of the headline doesn't shift between fallback and webfont.
+      {
+        rel: "preload",
+        as: "style",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Tiro+Bangla:ital@0;1&display=swap",
+      },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=Noto+Serif+Bengali:wght@400;500;600&family=Hind+Siliguri:wght@300;400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Tiro+Bangla:ital@0;1&display=swap",
+      },
+      // Body + UI faces (English: Work Sans, Bengali: Hind Siliguri).
+      // Noto Serif Bengali is kept as a robust fallback for long-form Bengali.
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&family=Hind+Siliguri:wght@300;400;500;600&family=Noto+Serif+Bengali:wght@400;500;600&display=swap",
       },
     ],
   }),
