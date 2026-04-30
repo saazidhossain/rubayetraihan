@@ -5,6 +5,7 @@ import { getSazidCredit } from "@/lib/footerCredit";
 
 const FOOTER_LINKS = [
   { to: "/work" as const, label: { en: "Work", bn: "কাজ" } },
+  { to: "/exhibitions" as const, label: { en: "Exhibitions", bn: "প্রদর্শনী" } },
   { to: "/products" as const, label: { en: "Products", bn: "পণ্য" } },
   { to: "/about" as const, label: { en: "About", bn: "আমার সম্পর্কে" } },
   { to: "/insights" as const, label: { en: "Insights", bn: "অন্তর্দৃষ্টি" } },
