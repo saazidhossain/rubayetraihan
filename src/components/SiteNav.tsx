@@ -4,13 +4,21 @@ import { BrandLogo } from "./BrandLogo";
 import { useLanguage } from "@/lib/language";
 
 interface NavItem {
-  to: "/" | "/work" | "/products" | "/about" | "/contact" | "/insights";
+  to:
+    | "/"
+    | "/work"
+    | "/products"
+    | "/exhibitions"
+    | "/about"
+    | "/contact"
+    | "/insights";
   label: { en: string; bn: string };
 }
 
 const NAV: NavItem[] = [
   { to: "/", label: { en: "Home", bn: "হোম" } },
   { to: "/work", label: { en: "Work", bn: "কাজ" } },
+  { to: "/exhibitions", label: { en: "Exhibitions", bn: "প্রদর্শনী" } },
   { to: "/products", label: { en: "Products", bn: "পণ্য" } },
   { to: "/about", label: { en: "About", bn: "আমার সম্পর্কে" } },
   { to: "/insights", label: { en: "Insights", bn: "অন্তর্দৃষ্টি" } },
