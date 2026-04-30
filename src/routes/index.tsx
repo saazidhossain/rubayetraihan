@@ -129,34 +129,32 @@ function Index() {
             <p className="font-body-en text-[0.6rem] uppercase tracking-[0.3em] text-white/30">
               © {new Date().getFullYear()} Rubayat Raihan
             </p>
-            <a
-              href="https://www.behance.net/saazidhossain"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex flex-col items-center gap-1 sm:items-end"
-              aria-label={
-                lang === "bn"
-                  ? "একটি সাজিদ হোসেন স্থাপত্য"
-                  : "A Sazid Hossain Architecture"
-              }
-            >
-              {lang === "bn" ? (
-                <span
-                  lang="bn"
-                  className="font-display-bn bg-gradient-to-r from-[#e8c98a] via-[#f3dcae] to-[#b8893f] bg-clip-text text-sm font-light tracking-[0.08em] text-transparent transition-all duration-500 group-hover:tracking-[0.12em] sm:text-base"
+            {(() => {
+              const credit = getSazidCredit(lang);
+              return (
+                <a
+                  href={credit.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex flex-col items-center gap-1 sm:items-end"
+                  aria-label={credit.text}
                 >
-                  একটি সাজিদ হোসেন স্থাপত্য
-                </span>
-              ) : (
-                <span
-                  lang="en"
-                  className="font-display-en bg-gradient-to-r from-[#e8c98a] via-[#f3dcae] to-[#b8893f] bg-clip-text text-sm font-light tracking-[0.18em] text-transparent transition-all duration-500 group-hover:tracking-[0.22em] sm:text-base"
-                >
-                  A SAZID HOSSAIN ARCHITECTURE
-                </span>
-              )}
-              <span className="mt-1 h-px w-16 origin-left scale-x-0 bg-gradient-to-r from-[#e8c98a] to-transparent transition-transform duration-500 group-hover:scale-x-100" />
-            </a>
+                  <span
+                    key={credit.lang}
+                    lang={credit.lang}
+                    data-testid="sazid-credit"
+                    className={`bg-gradient-to-r from-[#e8c98a] via-[#f3dcae] to-[#b8893f] bg-clip-text text-transparent font-light text-[0.82rem] sm:text-base transition-all duration-500 ${
+                      credit.lang === "bn"
+                        ? "font-display-bn tracking-[0.06em] group-hover:tracking-[0.1em]"
+                        : "font-display-en tracking-[0.16em] group-hover:tracking-[0.2em]"
+                    }`}
+                  >
+                    {credit.text}
+                  </span>
+                  <span className="mt-1 h-px w-16 origin-left scale-x-0 bg-gradient-to-r from-[#e8c98a] to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+                </a>
+              );
+            })()}
           </div>
         </div>
       </footer>
