@@ -12,6 +12,7 @@ export function Exhibitions() {
     () =>
       exhibition.gallery.map((g) => ({
         src: g.src,
+        alt: g.caption.en,
         caption: g.caption,
       })),
     [exhibition],
