@@ -52,6 +52,8 @@ function Index() {
 
       <PortfolioGrid lang={lang} />
 
+      <Exhibitions />
+
       {/* Studio note */}
       <section
         id="about"
