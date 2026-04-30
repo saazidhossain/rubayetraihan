@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { Hero } from "@/components/Hero";
+import { Exhibitions } from "@/components/Exhibitions";
 import { useLanguage } from "@/lib/language";
 import { artistProfile } from "@/data/portfolio";
+import { getSazidCredit } from "@/lib/footerCredit";
 
 export const Route = createFileRoute("/")({
   head: () => ({
